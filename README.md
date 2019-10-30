@@ -2,7 +2,7 @@
 
 ## Introduction
 
-Test golang app to check your own IP address. It is part of a simple continuous integration process using Github, Travis CI and dockerhub and possibly on k8.
+Test golang app to check your own IP address. It is part of a simple continuous integration process using Github, Travis CI and dockerhub and possibly on kubernetes.
 
 ## Reference
 
