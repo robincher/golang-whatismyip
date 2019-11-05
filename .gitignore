@@ -10,3 +10,18 @@
 
 # Output of the go coverage tool, specifically when used with LiteIDE
 *.out
+
+#  Local .terraform directories
+**/.terraform/*
+
+# .tfstate files
+*.tfstate
+*.tfstate.*
+
+# .tfvars files
+*.tfvars
+*.tfvars.example
+
+# Secrets and kubeconfigs
+kubeconfig.yaml
+.envrc

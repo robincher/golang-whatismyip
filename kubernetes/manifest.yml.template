@@ -1,0 +1,37 @@
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: golang-whatismyip-service
+spec:
+  type: NodePort
+  ports:
+    - port: 8000
+      targetPort: 8000
+      nodePort: 30000
+  selector:
+    app: golang-whatismyip
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: golang-whatismyip-deployment
+  namespace: default
+  labels:
+    app: golang-whatismyip
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: golang-whatismyip
+  template:
+    metadata:
+      labels:
+        app: golang-whatismyip
+    spec:
+      containers:
+        - name: golang-whatismyip
+          image: robincher/golang-whatismyip:${TRAVIS_COMMIT}
+          ports:
+            - containerPort: 8000
+              name: http
